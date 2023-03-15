@@ -6,7 +6,7 @@ import { Button } from './ContactListItem.styled';
 
 export const ContactListItem = ({ name, number, id, onDeleteContact }) => {
   return (
-    <ListItem key={id}>
+    <ListItem>
       <Contact>
         {name}: {number}
       </Contact>
@@ -21,4 +21,5 @@ ContactListItem.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  onDeleteContact: PropTypes.func.isRequired
 };

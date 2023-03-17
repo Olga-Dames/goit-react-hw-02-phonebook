@@ -30,13 +30,12 @@ export class App extends Component {
       item => item.name === contact.name
     );
 
-    if (existingName) {
-      Notiflix.Notify.info(`${contact.name} is already in contacts`);
-    } else {
-      this.setState(prevState => ({
-        contacts: [...prevState.contacts, contact],
-      }));
-    }
+    existingName
+      ? Notiflix.Notify.info(`${contact.name} is already in contacts`)
+      : this.setState(prevState => ({
+          contacts: [...prevState.contacts, contact],
+        }));
+    return existingName;
   };
 
   changeFilter = e => {

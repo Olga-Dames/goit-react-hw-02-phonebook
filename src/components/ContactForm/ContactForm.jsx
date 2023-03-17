@@ -17,8 +17,10 @@ export class ContactForm extends Component {
 
   onSubmitAdd = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
-    this.reset();
+    const isNameExists = this.props.onSubmit(this.state);
+    if (!isNameExists) {
+      this.reset();
+    }
   };
 
   reset = () => this.setState({ name: '', number: '' });
